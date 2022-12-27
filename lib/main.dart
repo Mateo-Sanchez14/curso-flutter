@@ -1,53 +1,65 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-      const MaterialApp(title: 'hola mundo', home: SafeArea(child: MyApp())));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This is the constructor for the MyApp class. It has a parameter called
-  // key, and it passes the value of key to the superclass. The value of key
-  // is
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: [
-          Container(
-            height: 65,
-            padding: const EdgeInsets.all(2),
-            decoration: const BoxDecoration(
-              color: Colors.blueAccent,
-            ),
-            child: Row(
-              children: const [
-                IconButton(
-                  onPressed: null,
-                  icon: Icon(Icons.menu),
-                  tooltip: 'Navigation menu',
-                ),
-                Expanded(child: Text('Aplicación de ejemplo')),
-                IconButton(
-                    onPressed: null,
-                    icon: Icon(Icons.search),
-                    tooltip: 'Search'),
-              ],
-            ),
-          ),
-          const Expanded(
-            child: Center(
-              child: Text(
-                'Hola Pauli',
-                style: TextStyle(
-                  fontSize: 32,
-                  color: Colors.redAccent,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+    return MaterialApp(
+      title: 'ScafoldApp',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'ScafoldApp Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  const MyHomePage({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  Icon _corazon = const Icon(Icons.favorite_border, color: Colors.white);
+  bool _corazonPulsado = false;
+
+  void _like() {
+    setState(() {
+      if (_corazonPulsado) {
+        _corazon = const Icon(Icons.favorite_border, color: Colors.white);
+        _corazonPulsado = false;
+      } else {
+        _corazon = const Icon(Icons.favorite, color: Colors.red);
+        _corazonPulsado = true;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: [
+          IconButton(
+            onPressed: _like,
+            icon: _corazon,
           ),
         ],
       ),
