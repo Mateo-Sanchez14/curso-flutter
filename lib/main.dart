@@ -17,21 +17,20 @@ class MyApp extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 56,
-            padding: const EdgeInsets.all(8),
+            height: 65,
+            padding: const EdgeInsets.all(2),
             decoration: const BoxDecoration(
-              color: Colors.blue,
+              color: Colors.blueAccent,
             ),
             child: Row(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                const IconButton(
+              children: const [
+                IconButton(
                   onPressed: null,
                   icon: Icon(Icons.menu),
                   tooltip: 'Navigation menu',
                 ),
-                const Expanded(child: Text('Aplicación de ejemplo')),
-                const IconButton(
+                Expanded(child: Text('Aplicación de ejemplo')),
+                IconButton(
                     onPressed: null,
                     icon: Icon(Icons.search),
                     tooltip: 'Search'),
@@ -41,8 +40,12 @@ class MyApp extends StatelessWidget {
           const Expanded(
             child: Center(
               child: Text(
-                'Hola mundo',
-                textDirection: TextDirection.ltr,
+                'Hola Pauli',
+                style: TextStyle(
+                  fontSize: 32,
+                  color: Colors.redAccent,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
