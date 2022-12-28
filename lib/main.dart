@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ScafoldApp',
+      //disable debug banner
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -62,6 +64,44 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: _corazon,
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _like,
+        tooltip: 'Like',
+        backgroundColor: Colors.blueGrey,
+        //Si no es extended, el icono va como child y no se puede poner texto
+        child: _corazon,
+        //label: const Text('Like'),
+      ),
+      //Se puede poner el botón en donde queramos
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.blueGrey,
+        shape: CircularNotchedRectangle(),
+        child: Container(
+          height: 50.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.home, color: Colors.white),
+              ),
+              // IconButton(
+              //   onPressed: () {},
+              //   icon: const Icon(Icons.search, color: Colors.white),
+              // ),
+              // IconButton(
+              //   onPressed: () {},
+              //   icon: const Icon(Icons.add, color: Colors.white),
+              // ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.person, color: Colors.white),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
