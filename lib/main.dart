@@ -65,6 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      body: const Center(
+        child: Text(
+          'Hola Pauli',
+          style: TextStyle(fontSize: 30, color: Colors.blueGrey),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _like,
         tooltip: 'Like',
