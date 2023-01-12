@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage(this.title, {Key? key}) : super(key: key);
+  const MyHomePage(this.title, {Key? key}) : super(key: key);
 
   final String title;
 
@@ -38,20 +38,19 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.network(
-            'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
-            width: 200,
-            height: 200,
+      heightFactor:
+          2, //El centro se transforma en 2 veces el alto del Containter
+      widthFactor: 1,
+      child: Container(
+        color: Colors.purple,
+        child: const Text(
+          'Texto en el contenedor',
+          style: TextStyle(
+            fontSize: 30,
+            color: Colors.black,
+            fontStyle: FontStyle.italic,
           ),
-          Image.asset(
-            '/assets/images/imagen1.png',
-            width: 200,
-            height: 200,
-          ),
-        ],
+        ),
       ),
     );
   }
