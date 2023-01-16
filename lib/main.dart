@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final _snackBar = SnackBar(
+    final snackBar = SnackBar(
       content: const Text('Yay! A SnackBar!'),
       duration: const Duration(seconds: 5),
       action: SnackBarAction(
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ElevatedButton(
           child: const Text('Show SnackBar'),
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(_snackBar);
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
           },
         ),
       ),
